@@ -13,7 +13,7 @@ class GeneralErrorStateAdapter<Data> extends StateAdapter<Data, Data, GeneralFai
   }
 }
 
-class GeneralErrorVoidStateAdapter extends VoidStateAdapter<GeneralFailure> {
+class GeneralErrorVoidStateAdapter extends VoidStateAdapter<void, GeneralFailure> {
   @override
   Future<Option<GeneralFailure>> convertResponseToState(FutureVoidAction responseAction) async {
     try {

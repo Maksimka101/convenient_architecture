@@ -5,6 +5,6 @@ abstract class StateAdapter<Response, Data, Failure> {
   Future<Either<Failure, Data>> convertResponseToState(FutureAction<Response> responseAction);
 }
 
-abstract class VoidStateAdapter<Failure> {
-  Future<Option<Failure>> convertResponseToState(FutureVoidAction responseAction);
+abstract class VoidStateAdapter<Response, Failure> {
+  Future<Option<Failure>> convertResponseToState(FutureAction<Response> responseAction);
 }
