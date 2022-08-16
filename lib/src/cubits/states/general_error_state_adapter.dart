@@ -4,11 +4,23 @@ import 'package:fpdart/fpdart.dart';
 
 class GeneralErrorStateAdapter<Data> extends StateAdapter<Data, Data, GeneralFailure> {
   @override
-  Future<Either<GeneralFailure, Data>> convertResponseToState(FutureOrAction<Data> responseAction) async {
+  Future<Either<GeneralFailure, Data>> convertResponseToState(FutureAction<Data> responseAction) async {
     try {
       return right(await responseAction());
     } catch (e, st) {
       return left(GeneralFailure(error: e, stackTrace: st));
+    }
+  }
+}
+
+class GeneralErrorVoidStateAdapter extends VoidStateAdapter<GeneralFailure> {
+  @override
+  Future<Option<GeneralFailure>> convertResponseToState(FutureVoidAction responseAction) async {
+    try {
+      await responseAction();
+      return None();
+    } catch (e, st) {
+      return some(GeneralFailure(error: e, stackTrace: st));
     }
   }
 }
