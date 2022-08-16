@@ -8,6 +8,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "46.0.0"
+  all_lint_rules_community:
+    dependency: "direct dev"
+    description:
+      name: all_lint_rules_community
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.14"
   analyzer:
     dependency: transitive
     description:

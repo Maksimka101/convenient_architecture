@@ -2,9 +2,12 @@ import 'package:convenient_architecture/src/cubits/states/state_adapter.dart';
 import 'package:convenient_architecture/src/helpers/typedefs.dart';
 import 'package:fpdart/fpdart.dart';
 
-class CommonErrorStateAdapter<Data> extends StateAdapter<Data, Data, GeneralFailure> {
+class CommonErrorStateAdapter<Data>
+    extends StateAdapter<Data, Data, GeneralFailure> {
   @override
-  Future<Either<GeneralFailure, Data>> convertResponseToState(FutureAction<Data> responseAction) async {
+  Future<Either<GeneralFailure, Data>> convertResponseToState(
+    FutureAction<Data> responseAction,
+  ) async {
     try {
       return right(await responseAction());
     } catch (e, st) {
@@ -13,12 +16,15 @@ class CommonErrorStateAdapter<Data> extends StateAdapter<Data, Data, GeneralFail
   }
 }
 
-class CommonErrorVoidStateAdapter extends VoidStateAdapter<void, GeneralFailure> {
+class CommonErrorVoidStateAdapter
+    extends VoidStateAdapter<void, GeneralFailure> {
   @override
-  Future<Option<GeneralFailure>> convertResponseToState(FutureVoidAction responseAction) async {
+  Future<Option<GeneralFailure>> convertResponseToState(
+    FutureVoidAction responseAction,
+  ) async {
     try {
       await responseAction();
-      return None();
+      return const None();
     } catch (e, st) {
       return some(GeneralFailure(error: e, stackTrace: st));
     }

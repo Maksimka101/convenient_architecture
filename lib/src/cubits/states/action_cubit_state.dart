@@ -6,7 +6,9 @@ abstract class ActionCubitState<Data, Failure> extends Equatable {
   const factory ActionCubitState.initial() = _InitialActionCubitState;
   const factory ActionCubitState.inProgress() = _InProgressActionCubitState;
   const factory ActionCubitState.success(Data data) = _SuccessActionCubitState;
-  const factory ActionCubitState.failure(Failure failure) = _FailureActionCubitState;
+  const factory ActionCubitState.failure(
+    Failure failure,
+  ) = _FailureActionCubitState;
 
   @override
   List<Object?> get props => [];
@@ -29,7 +31,8 @@ class _SuccessActionCubitState<Data, _> extends ActionCubitState<Data, _> {
   List<Object?> get props => [data];
 }
 
-class _FailureActionCubitState<_, Failure> extends ActionCubitState<_, Failure> {
+class _FailureActionCubitState<_, Failure>
+    extends ActionCubitState<_, Failure> {
   const _FailureActionCubitState(this.failure) : super._();
 
   final Failure failure;
