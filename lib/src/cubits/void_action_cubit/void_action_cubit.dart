@@ -3,8 +3,8 @@ import 'package:convenient_architecture/src/cubits/states/state_adapter.dart';
 import 'package:convenient_architecture/src/cubits/states/void_action_cubit_state.dart';
 import 'package:convenient_architecture/src/helpers/typedefs.dart';
 
-abstract class ActionCubit<R, T, F> extends Cubit<VoidActionCubitState<T, F>> {
-  ActionCubit({
+abstract class VoidActionCubit<R, T, F> extends Cubit<VoidActionCubitState<T, F>> {
+  VoidActionCubit({
     required this.action,
     required this.stateAdapter,
   }) : super(const VoidActionCubitState.initial());
