@@ -1,5 +1,7 @@
 import 'dart:async';
 
+typedef Json = Map<String, dynamic>;
+
 typedef VoidAction = void Function();
 
 typedef Action<T> = T Function();
