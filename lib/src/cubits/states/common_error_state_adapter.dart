@@ -2,7 +2,7 @@ import 'package:convenient_architecture/src/cubits/states/state_adapter.dart';
 import 'package:convenient_architecture/src/helpers/typedefs.dart';
 import 'package:fpdart/fpdart.dart';
 
-class GeneralErrorStateAdapter<Data> extends StateAdapter<Data, Data, GeneralFailure> {
+class CommonErrorStateAdapter<Data> extends StateAdapter<Data, Data, GeneralFailure> {
   @override
   Future<Either<GeneralFailure, Data>> convertResponseToState(FutureAction<Data> responseAction) async {
     try {
@@ -13,7 +13,7 @@ class GeneralErrorStateAdapter<Data> extends StateAdapter<Data, Data, GeneralFai
   }
 }
 
-class GeneralErrorVoidStateAdapter extends VoidStateAdapter<void, GeneralFailure> {
+class CommonErrorVoidStateAdapter extends VoidStateAdapter<void, GeneralFailure> {
   @override
   Future<Option<GeneralFailure>> convertResponseToState(FutureVoidAction responseAction) async {
     try {

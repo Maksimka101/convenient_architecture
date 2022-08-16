@@ -3,14 +3,14 @@ import 'package:convenient_architecture/src/cubits/states/state_adapter.dart';
 import 'package:convenient_architecture/src/cubits/states/void_action_cubit_state.dart';
 import 'package:convenient_architecture/src/helpers/typedefs.dart';
 
-abstract class VoidActionCubit<R, F> extends Cubit<VoidActionCubitState<F>> {
+abstract class VoidActionCubit<Response, Failure> extends Cubit<VoidActionCubitState<Failure>> {
   VoidActionCubit({
     required this.action,
     required this.stateAdapter,
   }) : super(const VoidActionCubitState.initial());
 
-  final FutureAction<R> action;
-  final VoidStateAdapter<R, F> stateAdapter;
+  final FutureAction<Response> action;
+  final VoidStateAdapter<Response, Failure> stateAdapter;
 
   Future<void> doAction() async {
     emit(const VoidActionCubitState.inProgress());

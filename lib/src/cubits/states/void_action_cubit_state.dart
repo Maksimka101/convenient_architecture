@@ -1,33 +1,33 @@
 import 'package:equatable/equatable.dart';
 
-abstract class VoidActionCubitState<F> extends Equatable {
+abstract class VoidActionCubitState<Failure> extends Equatable {
   const VoidActionCubitState._();
 
   const factory VoidActionCubitState.initial() = _InitialVoidActionCubitState;
   const factory VoidActionCubitState.inProgress() = _InProgressVoidActionCubitState;
   const factory VoidActionCubitState.success() = _SuccessVoidActionCubitState;
-  const factory VoidActionCubitState.failure(F failure) = _FailureVoidActionCubitState;
+  const factory VoidActionCubitState.failure(Failure failure) = _FailureVoidActionCubitState;
 
   @override
   List<Object?> get props => [];
 }
 
-class _InitialVoidActionCubitState<F> extends VoidActionCubitState<F> {
+class _InitialVoidActionCubitState<_> extends VoidActionCubitState<_> {
   const _InitialVoidActionCubitState() : super._();
 }
 
-class _InProgressVoidActionCubitState<F> extends VoidActionCubitState<F> {
+class _InProgressVoidActionCubitState<_> extends VoidActionCubitState<_> {
   const _InProgressVoidActionCubitState() : super._();
 }
 
-class _SuccessVoidActionCubitState<F> extends VoidActionCubitState<F> {
+class _SuccessVoidActionCubitState<_> extends VoidActionCubitState<_> {
   const _SuccessVoidActionCubitState() : super._();
 }
 
-class _FailureVoidActionCubitState<F> extends VoidActionCubitState<F> {
+class _FailureVoidActionCubitState<Failure> extends VoidActionCubitState<Failure> {
   const _FailureVoidActionCubitState(this.failure) : super._();
 
-  final F failure;
+  final Failure failure;
 
   @override
   List<Object?> get props => [failure];
