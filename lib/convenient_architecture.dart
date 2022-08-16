@@ -15,7 +15,3 @@ export 'src/cubits/states/state_adapter.dart';
 export 'src/cubits/states/void_action_cubit_state.dart';
 export 'src/helpers/disposable.dart';
 export 'src/helpers/typedefs.dart';
-export 'package:fpdart/fpdart.dart';
-export 'package:equatable/equatable.dart';
-export 'package:bloc/bloc.dart';
-export 'package:meta/meta.dart';
