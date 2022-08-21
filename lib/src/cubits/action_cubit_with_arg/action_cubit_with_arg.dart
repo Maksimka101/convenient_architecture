@@ -3,9 +3,9 @@ import 'package:convenient_architecture/src/cubits/states/action_cubit_state.dar
 import 'package:convenient_architecture/src/cubits/states/state_adapter.dart';
 import 'package:convenient_architecture/src/helpers/typedefs.dart';
 
-abstract class ActionCubitWithArg<Response, Argument, Data, Failure>
+abstract class IActionCubitWithArg<Response, Argument, Data, Failure>
     extends Cubit<ActionCubitState<Data, Failure>> {
-  ActionCubitWithArg({
+  IActionCubitWithArg({
     required this.action,
     required this.stateAdapter,
   }) : super(const ActionCubitState.initial());
