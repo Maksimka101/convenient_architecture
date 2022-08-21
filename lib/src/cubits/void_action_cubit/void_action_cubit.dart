@@ -13,6 +13,12 @@ abstract class IVoidActionCubit<Response, Failure>
   final FutureAction<Response> action;
   final VoidStateAdapter<Response, Failure> stateAdapter;
 
+  @override
+  IVoidActionCubitState<Failure> get state => super.state;
+
+  @override
+  Stream<IVoidActionCubitState<Failure>> get stream => super.stream;
+
   Future<void> doAction() async {
     emit(const IVoidActionCubitState.inProgress());
 
