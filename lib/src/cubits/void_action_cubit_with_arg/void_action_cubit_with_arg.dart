@@ -4,17 +4,17 @@ import 'package:convenient_architecture/src/cubits/states/void_action_cubit_stat
 import 'package:convenient_architecture/src/helpers/typedefs.dart';
 
 abstract class IVoidActionCubitWithArg<Request, Argument, Failure>
-    extends Cubit<VoidActionCubitState<Failure>> {
+    extends Cubit<IVoidActionCubitState<Failure>> {
   IVoidActionCubitWithArg({
     required this.action,
     required this.stateAdapter,
-  }) : super(const VoidActionCubitState.initial());
+  }) : super(const IVoidActionCubitState.initial());
 
   final FutureArgAction<Request, Argument> action;
   final VoidStateAdapter<Request, Failure> stateAdapter;
 
   Future<void> doAction(Argument argument) async {
-    emit(const VoidActionCubitState.inProgress());
+    emit(const IVoidActionCubitState.inProgress());
 
     final result = await stateAdapter.convertResponseToState(
       () => action(argument),
@@ -22,8 +22,8 @@ abstract class IVoidActionCubitWithArg<Request, Argument, Failure>
 
     emit(
       result.match(
-        VoidActionCubitState.failure,
-        VoidActionCubitState.success,
+        IVoidActionCubitState.failure,
+        IVoidActionCubitState.success,
       ),
     );
   }

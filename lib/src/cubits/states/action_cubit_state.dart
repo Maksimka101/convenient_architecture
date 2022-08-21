@@ -2,13 +2,13 @@ import 'package:convenient_architecture/convenient_architecture.dart';
 import 'package:equatable/equatable.dart';
 part 'action_state_mappers_mixin.dart';
 
-abstract class ActionCubitState<Data, Failure> extends Equatable {
-  const ActionCubitState._();
+abstract class IActionCubitState<Data, Failure> extends Equatable {
+  const IActionCubitState._();
 
-  const factory ActionCubitState.initial() = _InitialActionCubitState;
-  const factory ActionCubitState.inProgress() = _InProgressActionCubitState;
-  const factory ActionCubitState.success(Data data) = _SuccessActionCubitState;
-  const factory ActionCubitState.failure(
+  const factory IActionCubitState.initial() = _InitialActionCubitState;
+  const factory IActionCubitState.inProgress() = _InProgressActionCubitState;
+  const factory IActionCubitState.success(Data data) = _SuccessActionCubitState;
+  const factory IActionCubitState.failure(
     Failure failure,
   ) = _FailureActionCubitState;
 
@@ -38,17 +38,17 @@ abstract class ActionCubitState<Data, Failure> extends Equatable {
   List<Object?> get props => [];
 }
 
-class _InitialActionCubitState<_, __> extends ActionCubitState<_, __>
+class _InitialActionCubitState<_, __> extends IActionCubitState<_, __>
     with _ActionStateMappersMixin<_, __> {
   const _InitialActionCubitState() : super._();
 }
 
-class _InProgressActionCubitState<_, __> extends ActionCubitState<_, __>
+class _InProgressActionCubitState<_, __> extends IActionCubitState<_, __>
     with _ActionStateMappersMixin<_, __> {
   const _InProgressActionCubitState() : super._();
 }
 
-class _SuccessActionCubitState<Data, _> extends ActionCubitState<Data, _>
+class _SuccessActionCubitState<Data, _> extends IActionCubitState<Data, _>
     with _ActionStateMappersMixin<Data, _> {
   const _SuccessActionCubitState(this.data) : super._();
 
@@ -58,7 +58,7 @@ class _SuccessActionCubitState<Data, _> extends ActionCubitState<Data, _>
   List<Object?> get props => [data];
 }
 
-class _FailureActionCubitState<_, Failure> extends ActionCubitState<_, Failure>
+class _FailureActionCubitState<_, Failure> extends IActionCubitState<_, Failure>
     with _ActionStateMappersMixin<_, Failure> {
   const _FailureActionCubitState(this.failure) : super._();
 

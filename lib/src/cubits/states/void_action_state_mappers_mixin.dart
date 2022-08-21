@@ -1,6 +1,6 @@
 part of 'void_action_cubit_state.dart';
 
-mixin _VoidActionStateMappersMixin<Failure> on VoidActionCubitState<Failure> {
+mixin _VoidActionStateMappersMixin<Failure> on IVoidActionCubitState<Failure> {
   @override
   T when<T>({
     required Action<T> initial,

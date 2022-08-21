@@ -3,14 +3,14 @@ import 'package:equatable/equatable.dart';
 
 part 'void_action_state_mappers_mixin.dart';
 
-abstract class VoidActionCubitState<Failure> extends Equatable {
-  const VoidActionCubitState._();
+abstract class IVoidActionCubitState<Failure> extends Equatable {
+  const IVoidActionCubitState._();
 
-  const factory VoidActionCubitState.initial() = _InitialVoidActionCubitState;
-  const factory VoidActionCubitState.inProgress() =
+  const factory IVoidActionCubitState.initial() = _InitialVoidActionCubitState;
+  const factory IVoidActionCubitState.inProgress() =
       _InProgressVoidActionCubitState;
-  const factory VoidActionCubitState.success() = _SuccessVoidActionCubitState;
-  const factory VoidActionCubitState.failure(
+  const factory IVoidActionCubitState.success() = _SuccessVoidActionCubitState;
+  const factory IVoidActionCubitState.failure(
     Failure failure,
   ) = _FailureVoidActionCubitState;
 
@@ -40,23 +40,23 @@ abstract class VoidActionCubitState<Failure> extends Equatable {
   List<Object?> get props => [];
 }
 
-class _InitialVoidActionCubitState<_> extends VoidActionCubitState<_>
+class _InitialVoidActionCubitState<_> extends IVoidActionCubitState<_>
     with _VoidActionStateMappersMixin<_> {
   const _InitialVoidActionCubitState() : super._();
 }
 
-class _InProgressVoidActionCubitState<_> extends VoidActionCubitState<_>
+class _InProgressVoidActionCubitState<_> extends IVoidActionCubitState<_>
     with _VoidActionStateMappersMixin<_> {
   const _InProgressVoidActionCubitState() : super._();
 }
 
-class _SuccessVoidActionCubitState<_> extends VoidActionCubitState<_>
+class _SuccessVoidActionCubitState<_> extends IVoidActionCubitState<_>
     with _VoidActionStateMappersMixin<_> {
   const _SuccessVoidActionCubitState() : super._();
 }
 
 class _FailureVoidActionCubitState<Failure>
-    extends VoidActionCubitState<Failure>
+    extends IVoidActionCubitState<Failure>
     with _VoidActionStateMappersMixin<Failure> {
   const _FailureVoidActionCubitState(this.failure) : super._();
 

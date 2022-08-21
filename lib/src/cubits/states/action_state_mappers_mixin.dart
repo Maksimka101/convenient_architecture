@@ -1,7 +1,7 @@
 part of 'action_cubit_state.dart';
 
 mixin _ActionStateMappersMixin<Data, Failure>
-    on ActionCubitState<Data, Failure> {
+    on IActionCubitState<Data, Failure> {
   @override
   T when<T>({
     required Action<T> initial,
