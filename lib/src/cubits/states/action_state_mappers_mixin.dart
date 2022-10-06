@@ -1,7 +1,7 @@
-part of 'action_cubit_state.dart';
+part of 'action_bloc_state.dart';
 
 mixin _ActionStateMappersMixin<Data, Failure>
-    on IActionCubitState<Data, Failure> {
+    on IActionBlocState<Data, Failure> {
   @override
   T when<T>({
     required Action<T> initial,
@@ -10,14 +10,14 @@ mixin _ActionStateMappersMixin<Data, Failure>
     required Mapper<T, Failure> failure,
   }) {
     switch (runtimeType) {
-      case _InitialActionCubitState:
+      case _InitialActionBlocState:
         return initial();
-      case _InProgressActionCubitState:
+      case _InProgressActionBlocState:
         return inProgress();
-      case _SuccessActionCubitState:
-        return success((this as _SuccessActionCubitState).data);
-      case _FailureActionCubitState:
-        return failure((this as _FailureActionCubitState).failure);
+      case _SuccessActionBlocState:
+        return success((this as _SuccessActionBlocState).data);
+      case _FailureActionBlocState:
+        return failure((this as _FailureActionBlocState).failure);
       default:
         throw UnimplementedError();
     }

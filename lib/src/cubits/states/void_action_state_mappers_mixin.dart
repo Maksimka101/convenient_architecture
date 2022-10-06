@@ -1,6 +1,6 @@
-part of 'void_action_cubit_state.dart';
+part of 'void_action_bloc_state.dart';
 
-mixin _VoidActionStateMappersMixin<Failure> on IVoidActionCubitState<Failure> {
+mixin _VoidActionStateMappersMixin<Failure> on IVoidActionBlocState<Failure> {
   @override
   T when<T>({
     required Action<T> initial,
@@ -9,14 +9,14 @@ mixin _VoidActionStateMappersMixin<Failure> on IVoidActionCubitState<Failure> {
     required Mapper<T, Failure> failure,
   }) {
     switch (runtimeType) {
-      case _InitialVoidActionCubitState:
+      case _InitialVoidActionBlocState:
         return initial();
-      case _InProgressVoidActionCubitState:
+      case _InProgressVoidActionBlocState:
         return inProgress();
-      case _SuccessVoidActionCubitState:
+      case _SuccessVoidActionBlocState:
         return success();
-      case _FailureVoidActionCubitState:
-        return failure((this as _FailureVoidActionCubitState).failure);
+      case _FailureVoidActionBlocState:
+        return failure((this as _FailureVoidActionBlocState).failure);
       default:
         throw UnimplementedError();
     }

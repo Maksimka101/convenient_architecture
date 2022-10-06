@@ -2,15 +2,15 @@ import 'package:convenient_architecture/convenient_architecture.dart';
 import 'package:equatable/equatable.dart';
 part 'action_state_mappers_mixin.dart';
 
-abstract class IActionCubitState<Data, Failure> extends Equatable {
-  const IActionCubitState._();
+abstract class IActionBlocState<Data, Failure> extends Equatable {
+  const IActionBlocState._();
 
-  const factory IActionCubitState.initial() = _InitialActionCubitState;
-  const factory IActionCubitState.inProgress() = _InProgressActionCubitState;
-  const factory IActionCubitState.success(Data data) = _SuccessActionCubitState;
-  const factory IActionCubitState.failure(
+  const factory IActionBlocState.initial() = _InitialActionBlocState;
+  const factory IActionBlocState.inProgress() = _InProgressActionBlocState;
+  const factory IActionBlocState.success(Data data) = _SuccessActionBlocState;
+  const factory IActionBlocState.failure(
     Failure failure,
-  ) = _FailureActionCubitState;
+  ) = _FailureActionBlocState;
 
   T when<T>({
     required Action<T> initial,
@@ -38,19 +38,19 @@ abstract class IActionCubitState<Data, Failure> extends Equatable {
   List<Object?> get props => [];
 }
 
-class _InitialActionCubitState<_, __> extends IActionCubitState<_, __>
+class _InitialActionBlocState<_, __> extends IActionBlocState<_, __>
     with _ActionStateMappersMixin<_, __> {
-  const _InitialActionCubitState() : super._();
+  const _InitialActionBlocState() : super._();
 }
 
-class _InProgressActionCubitState<_, __> extends IActionCubitState<_, __>
+class _InProgressActionBlocState<_, __> extends IActionBlocState<_, __>
     with _ActionStateMappersMixin<_, __> {
-  const _InProgressActionCubitState() : super._();
+  const _InProgressActionBlocState() : super._();
 }
 
-class _SuccessActionCubitState<Data, _> extends IActionCubitState<Data, _>
+class _SuccessActionBlocState<Data, _> extends IActionBlocState<Data, _>
     with _ActionStateMappersMixin<Data, _> {
-  const _SuccessActionCubitState(this.data) : super._();
+  const _SuccessActionBlocState(this.data) : super._();
 
   final Data data;
 
@@ -58,9 +58,9 @@ class _SuccessActionCubitState<Data, _> extends IActionCubitState<Data, _>
   List<Object?> get props => [data];
 }
 
-class _FailureActionCubitState<_, Failure> extends IActionCubitState<_, Failure>
+class _FailureActionBlocState<_, Failure> extends IActionBlocState<_, Failure>
     with _ActionStateMappersMixin<_, Failure> {
-  const _FailureActionCubitState(this.failure) : super._();
+  const _FailureActionBlocState(this.failure) : super._();
 
   final Failure failure;
 
