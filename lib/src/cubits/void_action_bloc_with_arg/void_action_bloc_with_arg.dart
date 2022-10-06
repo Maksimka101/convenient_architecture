@@ -2,13 +2,13 @@ import 'package:bloc/bloc.dart';
 import 'package:convenient_architecture/convenient_architecture.dart';
 
 abstract class IVoidActionBlocWithArg<Request, Argument, Failure>
-    extends Bloc<ActionArgBlocEvent<Argument>, IVoidActionBlocState<Failure>> {
+    extends Bloc<IActionArgEvent<Argument>, IVoidActionBlocState<Failure>> {
   IVoidActionBlocWithArg({
     required FutureArgAction<Request, Argument> action,
     required VoidStateAdapter<Request, Failure> stateAdapter,
-    EventTransformer<ActionArgBlocEvent<Argument>>? transformer,
+    EventTransformer<IActionArgEvent<Argument>>? transformer,
   }) : super(const IVoidActionBlocState.initial()) {
-    on<ActionArgBlocEvent<Argument>>(
+    on<IActionArgEvent<Argument>>(
       transformer: transformer,
       (event, emit) async {
         emit(const IVoidActionBlocState.inProgress());

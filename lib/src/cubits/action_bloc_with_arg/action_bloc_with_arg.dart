@@ -5,14 +5,13 @@ import 'package:convenient_architecture/src/cubits/states/state_adapter.dart';
 import 'package:convenient_architecture/src/helpers/typedefs.dart';
 
 abstract class IActionBlocWithArg<Response, Argument, Data, Failure>
-    extends Bloc<ActionArgBlocEvent<Argument>,
-        IActionBlocState<Data, Failure>> {
+    extends Bloc<IActionArgEvent<Argument>, IActionBlocState<Data, Failure>> {
   IActionBlocWithArg({
     required FutureArgAction<Response, Argument> action,
     required StateAdapter<Response, Data, Failure> stateAdapter,
-    EventTransformer<ActionArgBlocEvent<Argument>>? transformer,
+    EventTransformer<IActionArgEvent<Argument>>? transformer,
   }) : super(const IActionBlocState.initial()) {
-    on<ActionArgBlocEvent<Argument>>(
+    on<IActionArgEvent<Argument>>(
       transformer: transformer,
       (event, emit) async {
         emit(const IActionBlocState.inProgress());

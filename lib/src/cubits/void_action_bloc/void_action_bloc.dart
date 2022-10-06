@@ -5,13 +5,13 @@ import 'package:convenient_architecture/src/cubits/states/void_action_bloc_state
 import 'package:convenient_architecture/src/helpers/typedefs.dart';
 
 abstract class IVoidActionBloc<Response, Failure>
-    extends Bloc<ActionBlocEvent, IVoidActionBlocState<Failure>> {
+    extends Bloc<IActionEvent, IVoidActionBlocState<Failure>> {
   IVoidActionBloc({
     required FutureAction<Response> action,
     required VoidStateAdapter<Response, Failure> stateAdapter,
-    EventTransformer<ActionBlocEvent>? transformer,
+    EventTransformer<IActionEvent>? transformer,
   }) : super(const IVoidActionBlocState.initial()) {
-    on<ActionBlocEvent>(
+    on<IActionEvent>(
       transformer: transformer,
       (_, emit) async {
         emit(const IVoidActionBlocState.inProgress());

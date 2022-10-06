@@ -1,9 +1,9 @@
-class ActionBlocEvent {
-  const ActionBlocEvent();
+class IActionEvent {
+  const IActionEvent();
 }
 
-class ActionArgBlocEvent<T> {
-  ActionArgBlocEvent(this.argument);
+class IActionArgEvent<T> {
+  IActionArgEvent(this.argument);
 
   final T argument;
 }
