@@ -7,8 +7,8 @@ import 'package:convenient_architecture/src/helpers/typedefs.dart';
 abstract class IVoidActionBloc<Response, Failure>
     extends Bloc<ActionBlocEvent, IVoidActionBlocState<Failure>> {
   IVoidActionBloc({
-    required this.action,
-    required this.stateAdapter,
+    required FutureAction<Response> action,
+    required VoidStateAdapter<Response, Failure> stateAdapter,
     EventTransformer<ActionBlocEvent>? transformer,
   }) : super(const IVoidActionBlocState.initial()) {
     on<ActionBlocEvent>(
@@ -27,9 +27,4 @@ abstract class IVoidActionBloc<Response, Failure>
       },
     );
   }
-
-  final FutureAction<Response> action;
-  final VoidStateAdapter<Response, Failure> stateAdapter;
-
-  void doAction() => add(const ActionBlocEvent());
 }

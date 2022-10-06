@@ -8,8 +8,8 @@ abstract class IActionBlocWithArg<Response, Argument, Data, Failure>
     extends Bloc<ActionArgBlocEvent<Argument>,
         IActionBlocState<Data, Failure>> {
   IActionBlocWithArg({
-    required this.action,
-    required this.stateAdapter,
+    required FutureArgAction<Response, Argument> action,
+    required StateAdapter<Response, Data, Failure> stateAdapter,
     EventTransformer<ActionArgBlocEvent<Argument>>? transformer,
   }) : super(const IActionBlocState.initial()) {
     on<ActionArgBlocEvent<Argument>>(
@@ -30,9 +30,4 @@ abstract class IActionBlocWithArg<Response, Argument, Data, Failure>
       },
     );
   }
-
-  final FutureArgAction<Response, Argument> action;
-  final StateAdapter<Response, Data, Failure> stateAdapter;
-
-  void doAction(Argument argument) => add(ActionArgBlocEvent(argument));
 }
