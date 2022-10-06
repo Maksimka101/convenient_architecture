@@ -1,11 +1,11 @@
 import 'package:equatable/equatable.dart';
 
-class IActionEvent {
-  const IActionEvent();
+class BlocEvent {
+  const BlocEvent();
 }
 
-class IActionArgEvent<T> extends Equatable {
-  const IActionArgEvent(this.argument);
+class BlocArgEvent<T> extends Equatable {
+  const BlocArgEvent(this.argument);
 
   final T argument;
 

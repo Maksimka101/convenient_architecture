@@ -1,22 +1,21 @@
 import 'package:bloc/bloc.dart';
 import 'package:convenient_architecture/src/cubits/states/action_bloc_state.dart';
-import 'package:convenient_architecture/src/cubits/states/bloc_events.dart';
 import 'package:convenient_architecture/src/cubits/states/state_adapter.dart';
 import 'package:convenient_architecture/src/helpers/typedefs.dart';
 
-abstract class IActionBloc<Response, Data, Failure>
-    extends Bloc<IActionEvent, IActionBlocState<Data, Failure>> {
+abstract class IActionBloc<Event, Response, Data, Failure>
+    extends Bloc<Event, IActionBlocState<Data, Failure>> {
   IActionBloc({
-    required FutureAction<Response> action,
-    required StateAdapter<Response, Data, Failure> stateAdapter,
-    EventTransformer<IActionEvent>? transformer,
+    required FutureArgAction<Response, Event> action,
+    required StateAdapter<Event, Response, Data, Failure> stateAdapter,
+    EventTransformer<Event>? transformer,
   }) : super(const IActionBlocState.initial()) {
-    on<IActionEvent>(
+    on<Event>(
       transformer: transformer,
-      (_, emit) async {
+      (event, emit) async {
         emit(const IActionBlocState.inProgress());
 
-        final result = await stateAdapter.convertResponseToState(action);
+        final result = await stateAdapter.convertResponseToState(event, action);
 
         emit(
           result.fold(
