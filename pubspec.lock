@@ -211,6 +211,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.1"
+  response_parser:
+    dependency: "direct main"
+    description:
+      name: response_parser
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0+1"
   shelf:
     dependency: transitive
     description:

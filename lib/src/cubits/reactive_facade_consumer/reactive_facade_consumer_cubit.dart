@@ -5,6 +5,7 @@ import 'package:convenient_architecture/src/facades/reactive_facade.dart';
 import 'package:convenient_architecture/src/helpers/typedefs.dart';
 import 'package:equatable/equatable.dart';
 
+/// Base for the cubit which listens to the [ReactiveFacade.dataStream].
 class ReactiveFacadeConsumerCubit<T>
     extends Cubit<ReactiveFacadeConsumerCubitState<T>> {
   ReactiveFacadeConsumerCubit(

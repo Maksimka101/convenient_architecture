@@ -13,24 +13,24 @@ import 'package:meta/meta.dart';
 /// class User {}
 ///
 /// class UserRepository with ReactiveFacade<User> {
-///   DB? _db;
+///   final IUserApiRepository userApiRepository;
 ///
-///   /// Opens db.
-///   Future<void> initialize() async {
-///     _db = await openDb();
+///   /// Facade method should returns result status: either error or success.
+///   /// Data must be emitted.
+///   Future<Option<Failure>> loadUser() async {
+///     try {
+///       final user = await userApiRepository.fetch();
+///       emit(user);
+///       return const None();
+///     } catch (e, st) {
+///       return some(Failure(e, st));
+///     }
 ///   }
 ///
-///   /// Loads `User` and adds (emits) it to the [dataStream]
-///   Future<void> loadUser() async {
-///     final user = await _db.load<User>();
-///     emit(user);
-///   }
-///
-///   /// Closes the db connection.
 ///   @override
 ///   Future<void> dispose() async {
-///     await _db.close();
-///     super.dispose();
+///     await userApiRepository.close();
+///     return super.dispose();
 ///   }
 /// }
 /// ```
@@ -38,7 +38,7 @@ abstract class ReactiveFacade<T> implements Disposable {
   final _dataStreamController = StreamController<T>.broadcast();
   T? _data;
 
-  /// Stream of data from the repository.
+  /// Stream of data from the facade.
   Stream<T> get dataStream => _dataStreamController.stream;
 
   /// Latest value that was [emit]ted to the [dataStream].

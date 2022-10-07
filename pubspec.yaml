@@ -1,7 +1,7 @@
 name: convenient_architecture
-description: Collection of helper classes and methods.
-version: 0.1.0
-# homepage: https://www.example.com
+description: The collection of useful utils and architecture base classes.
+version: 0.0.1
+repository: https://github.com/Maksimka101/convenient_architecture
 
 environment:
   sdk: ">=2.17.5 <3.0.0"
@@ -11,6 +11,7 @@ dependencies:
   equatable: ^2.0.3
   fpdart: ^0.2.0
   meta: ^1.8.0
+  response_parser: ^1.0.0+1
 
 dev_dependencies:
   all_lint_rules_community: ^0.0.14
