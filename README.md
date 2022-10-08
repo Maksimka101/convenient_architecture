@@ -7,5 +7,6 @@ The collection of useful utils and architecture base classes.
 - [`fpdart`](https://pub.dev/packages/fpdart) and `functional_extensions` - main 
   functional programming types and patterns.
 - `action_bloc` - subtype of the bloc which converts an action execution to the
+- `reactive_facade_consumer_cubit` - cubit which shortcuts the subscribing and listening to the reactive facade
   `inProgress` and `success`/`failure` state.
 - `reactive_facade` - helps to make the work with the infrastracture layer reactive. 
