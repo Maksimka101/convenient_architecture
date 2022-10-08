@@ -10,3 +10,5 @@ The collection of useful utils and architecture base classes.
 - `reactive_facade_consumer_cubit` - cubit which shortcuts the subscribing and listening to the reactive facade
   `inProgress` and `success`/`failure` state.
 - `reactive_facade` - helps to make the work with the infrastracture layer reactive. 
+
+Take a look at the example app to see these parts in action
