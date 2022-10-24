@@ -8,17 +8,16 @@ mixin _VoidActionStateMappersMixin<Failure> on IVoidActionBlocState<Failure> {
     required Action<T> success,
     required Mapper<T, Failure> failure,
   }) {
-    switch (runtimeType) {
-      case _InitialVoidActionBlocState:
-        return initial();
-      case _InProgressVoidActionBlocState:
-        return inProgress();
-      case _SuccessVoidActionBlocState:
-        return success();
-      case _FailureVoidActionBlocState:
-        return failure((this as _FailureVoidActionBlocState).failure);
-      default:
-        throw UnimplementedError();
+    if (this is _InitialVoidActionBlocState) {
+      return initial();
+    } else if (this is _InProgressVoidActionBlocState) {
+      return inProgress();
+    } else if (this is _SuccessVoidActionBlocState) {
+      return success();
+    } else if (this is _FailureVoidActionBlocState) {
+      return failure((this as _FailureVoidActionBlocState).failure);
+    } else {
+      throw UnimplementedError();
     }
   }
 

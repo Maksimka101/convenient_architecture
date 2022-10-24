@@ -9,17 +9,16 @@ mixin _ActionStateMappersMixin<Data, Failure>
     required Mapper<T, Data> success,
     required Mapper<T, Failure> failure,
   }) {
-    switch (runtimeType) {
-      case _InitialActionBlocState:
-        return initial();
-      case _InProgressActionBlocState:
-        return inProgress();
-      case _SuccessActionBlocState:
-        return success((this as _SuccessActionBlocState).data);
-      case _FailureActionBlocState:
-        return failure((this as _FailureActionBlocState).failure);
-      default:
-        throw UnimplementedError();
+    if (this is _InitialActionBlocState) {
+      return initial();
+    } else if (this is _InProgressActionBlocState) {
+      return inProgress();
+    } else if (this is _SuccessActionBlocState) {
+      return success((this as _SuccessActionBlocState).data);
+    } else if (this is _FailureActionBlocState) {
+      return failure((this as _FailureActionBlocState).failure);
+    } else {
+      throw UnimplementedError();
     }
   }
 
