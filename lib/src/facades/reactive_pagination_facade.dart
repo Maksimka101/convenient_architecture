@@ -7,6 +7,7 @@ import 'package:convenient_architecture/src/facades/reactive_facade_with_default
 class ReactivePaginationFacade<T>
     extends ReactiveFacadeWithDefault<PaginationInfo<T>> {
   ReactivePaginationFacade()
+      // Immutable items has generic type Never which leads to the runtime exception.
       // ignore: prefer_const_literals_to_create_immutables
       : super(PaginationInfo<T>(items: <T>[], canLoadMore: false));
 }
