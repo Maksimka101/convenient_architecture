@@ -24,9 +24,9 @@ class NotesScreen extends StatelessWidget {
                       const Center(child: CupertinoActivityIndicator()),
                   loaded: (loaded) {
                     return ListView.builder(
-                      itemCount: loaded.data.length + 1,
+                      itemCount: loaded.items.length + 1,
                       itemBuilder: (context, index) {
-                        if (index == loaded.data.length) {
+                        if (index == loaded.items.length) {
                           final loadInProgress = loadingState.maybeWhen(
                             orElse: () => false,
                             inProgress: () => true,
@@ -42,7 +42,7 @@ class NotesScreen extends StatelessWidget {
                             return const SizedBox.shrink();
                           }
                         }
-                        final note = loaded.data[index];
+                        final note = loaded.items[index];
 
                         return ListTile(
                           title: Text('$note #'),

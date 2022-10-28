@@ -1,6 +1,6 @@
 name: convenient_architecture
 description: The collection of useful utils and architecture base classes.
-version: 0.0.2
+version: 0.0.3
 repository: https://github.com/Maksimka101/convenient_architecture
 
 environment:

@@ -13,6 +13,7 @@ export 'src/cubits/states/state_adapter/state_adapter.dart';
 export 'src/cubits/states/void_action_bloc_state.dart';
 export 'src/cubits/void_action_bloc/void_action_bloc.dart';
 export 'src/extensions/functional_extension.dart';
+export 'src/facades/pagination_info.dart';
 export 'src/facades/reactive_facade.dart';
 export 'src/facades/reactive_facade_with_default.dart';
 export 'src/facades/reactive_list_facade.dart';

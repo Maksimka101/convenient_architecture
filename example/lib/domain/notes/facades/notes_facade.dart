@@ -23,7 +23,7 @@ class NotesFacade extends ReactivePaginationFacade<Note> {
       (notes) {
         emit(
           data.copyWith(
-            data: [...data.data, ...notes],
+            items: [...data.items, ...notes],
             canLoadMore: notes.length == _perPage,
           ),
         );
