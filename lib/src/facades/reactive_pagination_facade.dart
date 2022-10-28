@@ -7,7 +7,5 @@ import 'package:convenient_architecture/src/facades/reactive_facade_with_default
 class ReactivePaginationFacade<T>
     extends ReactiveFacadeWithDefault<PaginationInfo<T>> {
   ReactivePaginationFacade()
-      : super(
-          const PaginationInfo(items: [], canLoadMore: false),
-        );
+      : super(PaginationInfo<T>(items: const [], canLoadMore: false));
 }
