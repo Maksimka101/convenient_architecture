@@ -7,5 +7,6 @@ import 'package:convenient_architecture/src/facades/reactive_facade_with_default
 class ReactivePaginationFacade<T>
     extends ReactiveFacadeWithDefault<PaginationInfo<T>> {
   ReactivePaginationFacade()
-      : super(PaginationInfo<T>(items: const [], canLoadMore: false));
+      // ignore: prefer_const_literals_to_create_immutables
+      : super(PaginationInfo<T>(items: <T>[], canLoadMore: false));
 }
