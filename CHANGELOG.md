@@ -7,6 +7,7 @@
     - `addItems` method to add a new items to the existing.
     - `addItem` method to add a new item to the existing.
     - `removeItem` method to remove an item from the existing items. 
+- Add documentation to the `ActionCubit`, `ReactiveFacadeConsumerCubit` and `ReactiveFacade`
 
 ## 0.0.3
 
