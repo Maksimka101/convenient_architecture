@@ -1,3 +1,7 @@
+## 0.0.5
+
+- Update the `PaginationInfo`. Now it has required `idExtractor` parameter.
+
 ## 0.0.4
 
 - Update the `PaginationData`:

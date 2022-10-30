@@ -2,8 +2,11 @@ import 'package:convenient_architecture/convenient_architecture.dart';
 import 'package:example/domain/notes/models/note.dart';
 
 class NoteDto {
-  NoteDto();
-  NoteDto.fromJson(Json json);
+  NoteDto(this.id);
 
-  Note toEntity() => Note();
+  NoteDto.fromJson(Json json) : id = json['id'];
+
+  final String id;
+
+  Note toEntity() => Note(id);
 }

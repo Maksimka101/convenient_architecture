@@ -6,7 +6,7 @@ import 'package:example/domain/notes/models/note.dart';
 class NotesFacade extends ReactivePaginationFacade<Note> {
   NotesFacade({
     required this.notesApiRepository,
-  });
+  }) : super(idExtractor: (note) => note.id);
 
   final INotesApiRepository notesApiRepository;
   static const _perPage = 10;
@@ -22,8 +22,8 @@ class NotesFacade extends ReactivePaginationFacade<Note> {
       some,
       (notes) {
         emit(
-          data.copyWith(
-            items: [...data.items, ...notes],
+          data.addItems(
+            notes,
             canLoadMore: notes.length == _perPage,
           ),
         );
