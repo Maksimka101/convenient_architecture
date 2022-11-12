@@ -1,3 +1,8 @@
+## 0.0.6
+
+- Add `DisposableStreamListenableMixin` and `BlocStreamListenableMixin`. They
+  are maintain stream subscriptions for `Disposable` and `Bloc`s.
+
 ## 0.0.5
 
 - Update the `PaginationInfo`. Now it has required `idExtractor` parameter.

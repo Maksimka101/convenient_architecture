@@ -1,5 +1,8 @@
 library convenient_architecture;
 
+export 'package:convenient_architecture/src/mixins/bloc_stream_listenable_mixin.dart';
+export 'package:convenient_architecture/src/mixins/disposable_stream_listenable_mixin.dart';
+
 export 'package:fpdart/fpdart.dart' hide State;
 export 'package:response_parser/response_parser.dart';
 
