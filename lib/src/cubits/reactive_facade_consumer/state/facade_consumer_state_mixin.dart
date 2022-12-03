@@ -30,4 +30,6 @@ mixin _FacadeStateMappersMixin<Data> on FacadeConsumerState<Data> {
   bool get isInitial => when(initial: () => true, loaded: (_) => false);
   @override
   bool get isLoaded => when(loaded: (_) => true, initial: () => false);
+  @override
+  Data? get data => whenOrNull(loaded: identity);
 }

@@ -1,5 +1,6 @@
 import 'package:convenient_architecture/src/helpers/typedefs.dart';
 import 'package:equatable/equatable.dart';
+import 'package:fpdart/fpdart.dart';
 
 part 'facade_consumer_state_mixin.dart';
 
@@ -22,6 +23,7 @@ abstract class FacadeConsumerState<Data> extends Equatable {
 
   bool get isInitial;
   bool get isLoaded;
+  Data? get data;
 
   @override
   List<Object?> get props => [];
@@ -36,6 +38,7 @@ class _LoadedFacadeConsumerState<Data> extends FacadeConsumerState<Data>
     with _FacadeStateMappersMixin<Data> {
   const _LoadedFacadeConsumerState(this.data) : super._();
 
+  @override
   final Data data;
 
   @override

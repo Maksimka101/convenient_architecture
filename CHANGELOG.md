@@ -1,8 +1,12 @@
+## [0.1.0+1]
+
+- Back `data` getter to the `FacadeConsumerState`.
+
 ## [0.1.0]
 
 - Add `isInitial`, `isInProgress`, `isSuccess` and `isFailure` getters for the
-  `IVoidActionBlocState` and `IActionBlocState`
-- **BREAKING** Update the `ReactiveFacadeConsumerCubit`
+  `IVoidActionBlocState` and `IActionBlocState`.
+- **BREAKING** Update the `ReactiveFacadeConsumerCubit`:
   - rename it to the `FacadeConsumerCubit`
   - update its state:
     - rename it to the `FacadeConsumerState`
@@ -10,7 +14,7 @@
       and make the `data` argument positional (previously it was named)
     - add `whenOrNull` method
     - add `isInitial` and `isLoaded` getters
-- Add facade tests
+- Add facade tests.
 
 ## 0.0.6
 

@@ -18,14 +18,14 @@ abstract class IVoidActionBlocState<Failure> extends Equatable {
     required Action<T> initial,
     required Action<T> inProgress,
     required Action<T> success,
-    required Mapper<T, Failure> failure,
+    required T Function(Failure failure) failure,
   });
 
   T maybeWhen<T>({
     Action<T>? initial,
     Action<T>? inProgress,
     Action<T>? success,
-    Mapper<T, Failure>? failure,
+    T Function(Failure failure)? failure,
     required Action<T> orElse,
   });
 
@@ -33,7 +33,7 @@ abstract class IVoidActionBlocState<Failure> extends Equatable {
     Action<T>? initial,
     Action<T>? inProgress,
     Action<T>? success,
-    Mapper<T, Failure>? failure,
+    T Function(Failure failure)? failure,
   });
 
   bool get isInitial;

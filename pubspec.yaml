@@ -1,6 +1,6 @@
 name: convenient_architecture
 description: The collection of useful utils and architecture base classes.
-version: 0.1.0
+version: 0.1.0+1
 repository: https://github.com/Maksimka101/convenient_architecture
 
 environment:
@@ -8,7 +8,7 @@ environment:
 
 dependencies:
   bloc: ^8.1.0
-  equatable: ^2.0.3
+  equatable: ^2.0.5
   fpdart: ^0.2.0
   meta: ^1.8.0
   response_parser: ^1.0.0+1
