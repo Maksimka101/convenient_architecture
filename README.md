@@ -11,8 +11,9 @@ The collection of useful utils and architecture base classes.
 - [`fpdart`](https://pub.dev/packages/fpdart) and `functional_extensions` - main 
   functional programming types and patterns.
 - [`action_bloc`](#action-blocs) - subtype of the bloc which converts an action execution to the
-- [`reactive_facade_consumer_cubit`](#reactive-facade-consumer-cubit) - cubit which shortcuts the subscribing and 
-  listening to the reactive facade `inProgress` and `success`/`failure` state.
+  `inProgress` and `success`/`failure` states.
+- [`facade_consumer_cubit`](#facade-consumer-cubit) - cubit which shortcuts the subscribing and 
+  listening to the reactive facade.
 - [`reactive_facade`](#reactive-facade) - helps to make the work with the infrastracture layer reactive. 
 
 Take a look at the example app to see these parts in action
@@ -36,7 +37,7 @@ To map an `action` to the states bloc is using `IStateAdapter`.
 This is an adapter provided by user which takes an action with event, executes it
 and returns an `Either` of result or error.
 
-### Reactive facade consumer cubit
+### Facade consumer cubit
 It's a base for the cubit which listens to the `ReactiveFacade.dataStream`.
 
 ## Reactive facade

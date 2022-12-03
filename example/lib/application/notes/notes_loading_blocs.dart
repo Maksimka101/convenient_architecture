@@ -3,12 +3,11 @@ import 'package:example/application/core/blocs/action_blocs.dart';
 import 'package:example/domain/notes/facades/notes_facade.dart';
 import 'package:example/domain/notes/models/note.dart';
 
-class NotesCubit extends ReactiveFacadeConsumerCubit<PaginationInfo<Note>> {
+class NotesCubit extends FacadeConsumerCubit<PaginationInfo<Note>> {
   NotesCubit(super.facade);
 }
 
-typedef NotesCubitState
-    = ReactiveFacadeConsumerCubitState<PaginationInfo<Note>>;
+typedef NotesCubitState = FacadeConsumerState<PaginationInfo<Note>>;
 
 class NotesLoaderBloc extends VoidActionBloc<NotesLoadRequestedEvent> {
   NotesLoaderBloc(NotesFacade notesFacade)

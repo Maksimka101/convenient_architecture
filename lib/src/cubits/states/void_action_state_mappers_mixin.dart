@@ -52,4 +52,16 @@ mixin _VoidActionStateMappersMixin<Failure> on IVoidActionBlocState<Failure> {
       orElse: () => null,
     );
   }
+
+  @override
+  bool get isInitial => maybeWhen(initial: () => true, orElse: () => false);
+  @override
+  bool get isInProgress => maybeWhen(
+        inProgress: () => true,
+        orElse: () => false,
+      );
+  @override
+  bool get isSuccess => maybeWhen(success: () => true, orElse: () => false);
+  @override
+  bool get isFailure => maybeWhen(failure: (_) => true, orElse: () => false);
 }

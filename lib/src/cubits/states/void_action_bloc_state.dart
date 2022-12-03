@@ -36,6 +36,11 @@ abstract class IVoidActionBlocState<Failure> extends Equatable {
     Mapper<T, Failure>? failure,
   });
 
+  bool get isInitial;
+  bool get isInProgress;
+  bool get isSuccess;
+  bool get isFailure;
+
   @override
   List<Object?> get props => [];
 }

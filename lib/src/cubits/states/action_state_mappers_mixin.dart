@@ -53,4 +53,16 @@ mixin _ActionStateMappersMixin<Data, Failure>
       orElse: () => null,
     );
   }
+
+  @override
+  bool get isInitial => maybeWhen(initial: () => true, orElse: () => false);
+  @override
+  bool get isInProgress => maybeWhen(
+        inProgress: () => true,
+        orElse: () => false,
+      );
+  @override
+  bool get isSuccess => maybeWhen(success: (_) => true, orElse: () => false);
+  @override
+  bool get isFailure => maybeWhen(failure: (_) => true, orElse: () => false);
 }

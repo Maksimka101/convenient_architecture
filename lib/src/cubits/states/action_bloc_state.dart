@@ -1,5 +1,6 @@
 import 'package:convenient_architecture/convenient_architecture.dart';
 import 'package:equatable/equatable.dart';
+
 part 'action_state_mappers_mixin.dart';
 
 abstract class IActionBlocState<Data, Failure> extends Equatable {
@@ -33,6 +34,11 @@ abstract class IActionBlocState<Data, Failure> extends Equatable {
     Mapper<T, Data>? success,
     Mapper<T, Failure>? failure,
   });
+
+  bool get isInitial;
+  bool get isInProgress;
+  bool get isSuccess;
+  bool get isFailure;
 
   @override
   List<Object?> get props => [];
