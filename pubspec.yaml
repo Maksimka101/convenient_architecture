@@ -9,7 +9,7 @@ environment:
 dependencies:
   bloc: ^8.1.0
   equatable: ^2.0.5
-  fpdart: ^0.2.0
+  fpdart: ">=0.2.0 <0.5.0"
   meta: ^1.8.0
   response_parser: ^1.0.0+1
 
