@@ -6,5 +6,5 @@ import 'package:meta/meta.dart';
 /// by this object.
 abstract class Disposable {
   @mustCallSuper
-  FutureOr<void> dispose();
+  FutureOr<void> dispose() {}
 }
