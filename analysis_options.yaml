@@ -2,11 +2,7 @@ include: package:all_lint_rules_community/all.yaml
 
 analyzer:
   exclude:
-    - "**.g.dart"
-    - "**.freezed.dart"
     - "bin/cache/**"
-    - "lib/generated_plugin_registrant.dart"
-    - "lib/generated/localization/generated/**"
 
   errors:
     # Without ignore here, we cause import of all_lint_rules to warn, because some rules conflict.
@@ -26,6 +22,12 @@ linter:
     omit_local_variable_types: true
     always_declare_return_types: true
     # Custom disabled rules
+    dangling_library_doc_comments: false
+    avoid_returning_this: false
+    parameter_assignments: false
+    avoid_slow_async_io: false
+    prefer_foreach: false
+    join_return_with_assignment: false
     discarded_futures: false
     prefer_asserts_with_message: false
     unnecessary_late: false
@@ -47,8 +49,6 @@ linter:
     prefer_relative_imports: false
     prefer_mixin: false
     unnecessary_raw_strings: false
-    type_annotate_public_api: false
-    always_use_package_import: false
     prefer_expression_function_bodies: false
     no_default_cases: false
     prefer_single_quotes: false
@@ -61,41 +61,3 @@ linter:
     comment_references: false
     one_member_abstracts: false
     avoid_private_typedef_functions: false
-
-dart_code_metrics:
-  anti-patterns:
-    - long-method
-    - long-parameter-list
-  metrics:
-    cyclomatic-complexity: 20
-    maximum-nesting-level: 5
-    number-of-parameters: 4
-  metrics-exclude:
-    - test/**
-    - test_driver/**
-    - integration_test/**
-  rules:
-    - avoid-unused-parameters
-    - member-ordering:
-        order:
-          - constructors
-          - public-fields
-          - private-fields
-          - public-getters
-          - public-setters
-          - private-getters
-          - private-setters
-          - public-methods
-          - private-methods
-    - newline-before-return
-    - no-equal-arguments
-    - no-empty-block:
-        exclude:
-          - test/**
-    - no-equal-then-else
-    - no-magic-number:
-        exclude:
-          - test/**
-    - prefer-match-file-name:
-        exclude:
-          - test/**

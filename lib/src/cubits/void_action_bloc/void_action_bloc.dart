@@ -27,8 +27,8 @@ abstract class IVoidActionBloc<Event, Response, Failure>
 
         emit(
           result.match(
-            IVoidActionBlocState.failure,
             IVoidActionBlocState.success,
+            IVoidActionBlocState.failure,
           ),
         );
       },

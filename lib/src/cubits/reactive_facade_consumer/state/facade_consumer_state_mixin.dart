@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_as
+
 part of 'facade_consumer_state.dart';
 
 mixin _FacadeStateMappersMixin<Data> on FacadeConsumerState<Data> {
@@ -6,10 +8,11 @@ mixin _FacadeStateMappersMixin<Data> on FacadeConsumerState<Data> {
     required Action<T> initial,
     required Mapper<T, Data> loaded,
   }) {
-    if (this is _InitialFacadeConsumerState) {
+    final state = this;
+    if (state is _InitialFacadeConsumerState) {
       return initial();
-    } else if (this is _LoadedFacadeConsumerState) {
-      return loaded((this as _LoadedFacadeConsumerState).data);
+    } else if (state is _LoadedFacadeConsumerState) {
+      return loaded((state as _LoadedFacadeConsumerState).data);
     } else {
       throw UnimplementedError();
     }
@@ -30,6 +33,7 @@ mixin _FacadeStateMappersMixin<Data> on FacadeConsumerState<Data> {
   bool get isInitial => when(initial: () => true, loaded: (_) => false);
   @override
   bool get isLoaded => when(loaded: (_) => true, initial: () => false);
+
   @override
   Data? get data => whenOrNull(loaded: identity);
 }

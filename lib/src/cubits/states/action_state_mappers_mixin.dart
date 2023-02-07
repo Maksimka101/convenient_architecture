@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_as
+
 part of 'action_bloc_state.dart';
 
 mixin _ActionStateMappersMixin<Data, Failure>

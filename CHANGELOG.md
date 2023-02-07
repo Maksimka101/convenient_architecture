@@ -1,3 +1,7 @@
+## [0.1.1]
+
+- Upgrade packages
+
 ## [0.1.0+1]
 
 - Back `data` getter to the `FacadeConsumerState`.
