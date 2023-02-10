@@ -1,11 +1,13 @@
 import 'dart:async';
 
 import 'package:convenient_architecture/src/helpers/disposable.dart';
+import 'package:meta/meta.dart';
 
 mixin DisposableStreamListenableMixin on Disposable {
   StreamSubscription? _singleSubscription;
   final _subscriptions = <StreamSubscription>[];
 
+  @protected
   void addSingleSubscription<T>(
     Stream<T> stream,
     void Function(T value) listener, {
@@ -22,6 +24,7 @@ mixin DisposableStreamListenableMixin on Disposable {
     );
   }
 
+  @protected
   void addSubscription<T>(
     Stream<T> stream,
     void Function(T value) listener, {

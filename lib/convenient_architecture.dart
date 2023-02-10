@@ -1,3 +1,4 @@
+/// The collection of useful utils and architecture base classes.
 library convenient_architecture;
 
 export 'package:convenient_architecture/src/mixins/bloc_stream_listenable_mixin.dart';

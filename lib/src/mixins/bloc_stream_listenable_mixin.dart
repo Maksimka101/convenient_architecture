@@ -1,11 +1,13 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:meta/meta.dart';
 
 mixin BlocStreamListenableMixin<S> on BlocBase<S> {
   StreamSubscription? _singleSubscription;
   final _subscriptions = <StreamSubscription>[];
 
+  @protected
   void addSingleSubscription<T>(
     Stream<T> stream,
     void Function(T value) listener, {
@@ -22,6 +24,7 @@ mixin BlocStreamListenableMixin<S> on BlocBase<S> {
     );
   }
 
+  @protected
   void addSubscription<T>(
     Stream<T> stream,
     void Function(T value) listener, {
