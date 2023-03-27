@@ -1,3 +1,8 @@
+## [0.1.2]
+
+- Upgrade packages
+- Add the `absent` and `constF` methods
+
 ## [0.1.1]
 
 - Upgrade packages
