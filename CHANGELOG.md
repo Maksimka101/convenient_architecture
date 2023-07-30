@@ -1,3 +1,8 @@
+## [0.1.3]
+
+- Upgrade `fpdart` package to `1.0.0`
+- Rename `ValueChanged` to `ValueActionChanged`
+
 ## [0.1.2]
 
 - Upgrade packages

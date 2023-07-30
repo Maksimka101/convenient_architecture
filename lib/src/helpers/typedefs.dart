@@ -6,7 +6,7 @@ typedef VoidAction = void Function();
 
 typedef Action<T> = T Function();
 
-typedef ValueChanged<T> = void Function(T value);
+typedef ValueActionChanged<T> = void Function(T value);
 
 typedef FutureValueChanged<T> = Future<void> Function(T value);
 
